@@ -1,4 +1,4 @@
 dbf.js
 ======
 
-A node DBF Indexed Reader
+A n-th dbf reader

@@ -65,8 +65,54 @@ describe('Dbf.js', function() {
 		dbf.get(42, fix(function(err, record) {
 			expect(err).to.not.exist;
 			expect(record).to.exist;
-			expect(record.ID_OBJETO).to.eql(46007);
-			expect(record.NOME).to.eql('Vassouras');
+			expect(record.ID_OBJETO).to.equal(46007);
+			expect(record.NOME).to.equal('Vassouras');
+			done();
+		}));
+	});
+
+	context('br.mg.dbf', 'retrieve Lavras record', function(dbf, done) {
+
+		dbf.get(436, fix(function(err, record) {
+			expect(err).to.not.exist;
+			expect(record).to.be.eql({
+				CD_GEOCODM: "3138203",
+				ID: 1051,
+				NM_MUNICIP: "LAVRAS"
+			});
+
+			done();
+		}));
+	});
+
+
+	context('br.sp.dbf', 'error negative index', function(dbf, done) {
+		dbf.get(-222, fix(function(err, record) {
+			expect(record).to.not.exist;
+			expect(err).to.be.instanceOf(RangeError);
+
+			done();
+		}));
+	});
+
+	context('br.mg.dbf', 'error out of bound index', function(dbf, done) {
+		dbf.get(1000 * 1000, fix(function(err, record) {
+			expect(record).to.not.exist;
+			expect(err).to.be.instanceOf(RangeError);
+
+			done();
+		}));
+	});
+
+	context('br.sp.dbf', 'retrieve Sertãozinho', function(dbf, done) {
+		dbf.get(576, fix(function(err, record) {
+			expect(err).to.not.exist;
+			expect(record).to.be.eql({
+				"CD_GEOCODM": "3551702",
+				"ID": 2303,
+				"NM_MUNICIP": "SERTC\u0003OZINHO"
+			});
+
 			done();
 		}));
 	});

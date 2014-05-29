@@ -110,7 +110,7 @@ describe('Dbf.js', function() {
 			expect(record).to.be.eql({
 				"CD_GEOCODM": "3551702",
 				"ID": 2303,
-				"NM_MUNICIP": "SERTC\u0003OZINHO"
+				"NM_MUNICIP": "SERTÃOZINHO"
 			});
 
 			done();

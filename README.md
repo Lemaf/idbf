@@ -25,6 +25,6 @@ At moment these are supported datatypes:
 
 
 DBF DataType | Observations
----------------------------
-C | Support only ISO-8859-1
-N | Numeric like text 
+-------------|-------------------------
+C            | Support only ISO-8859-1
+N            | Numeric like text 

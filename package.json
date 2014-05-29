@@ -28,7 +28,7 @@
     "chai": "^1.9.1",
     "download": "0.1.17",
     "each-async": "0.1.3",
-    "iconv": "*",
+    "iconv": "2.1.4",
     "mocha": "^1.19.0",
     "sinon-chai": "2.5.0"
   }

@@ -1,5 +1,5 @@
 {
-  "name": "dbf.js",
+  "name": "idbf",
   "version": "0.0.0",
   "description": "A n-th index DBF Reader",
   "homepage": "https://github.com/rthoth/dbf.js",

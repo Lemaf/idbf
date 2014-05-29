@@ -1,11 +1,10 @@
-# dbf.js
+# idbf
 
 A n-th indexed DBF reader
 
 
 ```js
-
-var Dbf = require("dbf.js").Dbf;
+var Dbf = require("idbf").Dbf;
 var dbf = new Dbf("questions.dbf");
 
 dbf.get(42, function(err, record) {
@@ -16,7 +15,6 @@ dbf.get(42, function(err, record) {
         console.log("The universal question is mine!\n%j", record);
 
 });
-
 ```
 
 

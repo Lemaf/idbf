@@ -19,3 +19,12 @@ dbf.get(42, function(err, record) {
 
 
 This work is incomplete, I need support more data types!
+
+
+At moment these are supported datatypes:
+
+
+DBF DataType | Observations
+---------------------------
+C | Support only ISO-8859-1
+N | Numeric like text 

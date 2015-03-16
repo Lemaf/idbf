@@ -9,15 +9,7 @@ describe('Dbf.js', function() {
 
 		this.timeout(1000 * 60 * 10);
 		var downloads = [{
-			url: 'https://copy.com/yzHc6aQO76ko/shp.js/br.mg.dbf.zip?download=1',
-			name: 'br.mg.dbf.zip',
-			test: 'br.mg.dbf'
-		}, {
-			url: 'https://copy.com/yzHc6aQO76ko/shp.js/br.sp.dbf.zip?download=1',
-			name: 'br.sp.dbf.zip',
-			test: 'br.sp.dbf'
-		}, {
-			url: 'https://copy.com/yzHc6aQO76ko/shp.js/br.dbf.zip?download=1',
+			url: 'https://copy.com/Y0KcopGoEBmfrFuT/Public/br.dbf.zip?download=1',
 			name: 'br.dbf.zip',
 			test: 'br.dbf'
 		}];
@@ -71,14 +63,15 @@ describe('Dbf.js', function() {
 		}));
 	});
 
-	context('br.mg.dbf', 'retrieve Lavras record', function(dbf, done) {
+	context('br.dbf', 'retrieve Lavras record', function(dbf, done) {
 
-		dbf.get(436, fix(function(err, record) {
+		dbf.get(3104, fix(function(err, record) {
 			expect(err).to.not.exist;
 			expect(record).to.be.eql({
-				CD_GEOCODM: "3138203",
-				ID: 1051,
-				NM_MUNICIP: "LAVRAS"
+				ID_OBJETO: 41462,
+				NOME: "Lavras",
+				GEOCODIGO: "3138203",
+				GEOMETRIAA: "Não"
 			});
 
 			done();
@@ -86,7 +79,7 @@ describe('Dbf.js', function() {
 	});
 
 
-	context('br.sp.dbf', 'error negative index', function(dbf, done) {
+	context('br.dbf', 'error negative index', function(dbf, done) {
 		dbf.get(-222, fix(function(err, record) {
 			expect(record).to.not.exist;
 			expect(err).to.be.instanceOf(RangeError);
@@ -95,7 +88,7 @@ describe('Dbf.js', function() {
 		}));
 	});
 
-	context('br.mg.dbf', 'error out of bound index', function(dbf, done) {
+	context('br.dbf', 'error out of bound index', function(dbf, done) {
 		dbf.get(1000 * 1000, fix(function(err, record) {
 			expect(record).to.not.exist;
 			expect(err).to.be.instanceOf(RangeError);
@@ -104,13 +97,14 @@ describe('Dbf.js', function() {
 		}));
 	});
 
-	context('br.sp.dbf', 'retrieve Sertãozinho', function(dbf, done) {
-		dbf.get(576, fix(function(err, record) {
+	context('br.dbf', 'retrieve Sertãozinho', function(dbf, done) {
+		dbf.get(4171, fix(function(err, record) {
 			expect(err).to.not.exist;
 			expect(record).to.be.eql({
-				"CD_GEOCODM": "3551702",
-				"ID": 2303,
-				"NM_MUNICIP": "SERTÃOZINHO"
+				ID_OBJETO: 46632,
+				NOME: "Sertãozinho",
+				GEOCODIGO: "2515930",
+				GEOMETRIAA: "Não"
 			});
 
 			done();

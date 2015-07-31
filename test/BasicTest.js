@@ -111,4 +111,35 @@ describe('Dbf.js', function() {
 		}));
 	});
 
+
+	context('br.dbf', 'forEach', function(dbf, done) {
+
+		var lastIndex = -1;
+
+		dbf.forEach(function(err, record, index, next) {
+
+			if (record) {
+				context.log(index);
+				expect(err).to.not.exist;
+				expect(index).to.equal(lastIndex);
+				lastIndex = index;
+				expect(next).to.not.exist;
+
+				next();
+			} else if (err) {
+				expect(record).to.not.exist;
+				expect(index).to.not.exist;
+				expect(next).to.not.exist;
+
+			} else {
+				[err, record, index, next].forEach(function(val) {
+					expect(val).to.not.exist;
+				});
+
+				done();
+			}
+		});
+
+	});
+
 });

@@ -1,6 +1,6 @@
 {
   "name": "idbf",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A n-th index DBF Reader",
   "homepage": "https://github.com/rthoth/idbf",
   "main": "index.js",
@@ -21,8 +21,8 @@
   },
 
   "dependencies": {
-    "iconv": "2.1.4",
-    "promise": "^5.0.0"
+    "iconv": "2.1.8",
+    "promise": "^7.0.3"
   },
 
   "devDependencies": {

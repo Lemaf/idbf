@@ -114,16 +114,16 @@ describe('Dbf.js', function() {
 
 	context('br.dbf', 'forEach', function(dbf, done) {
 
-		var lastIndex = -1;
+		var lastIndex = -1, count = 0;
 
-		dbf.forEach(function(err, record, index, next) {
+		function iterator(err, record, index, next) {
+			count++;
 
 			if (record) {
-				context.log(index);
 				expect(err).to.not.exist;
-				expect(index).to.equal(lastIndex);
+				expect(index).to.equal(lastIndex + 1);
 				lastIndex = index;
-				expect(next).to.not.exist;
+				expect(next).to.exist;
 
 				next();
 			} else if (err) {
@@ -136,9 +136,13 @@ describe('Dbf.js', function() {
 					expect(val).to.not.exist;
 				});
 
+				expect(count).to.eql(5567);
+
 				done();
 			}
-		});
+		}
+
+		dbf.forEach(fix(iterator));
 
 	});
 

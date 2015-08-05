@@ -2,14 +2,14 @@
   "name": "idbf",
   "version": "1.0.0",
   "description": "A n-th index DBF Reader",
-  "homepage": "https://github.com/rthoth/idbf",
+  "homepage": "https://github.com/Lemaf/idbf",
   "main": "index.js",
   "scripts": {
     "test": "mocha -u bdd -R spec test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/rthoth/idbf.git"
+    "url": "git://github.com/Lemaf/idbf.git"
   },
   "keywords": [
     "dbf"
@@ -17,7 +17,7 @@
   "author": "rthoth <ronaldo.asilva@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rthoth/idbf/issues"
+    "url": "https://github.com/Lemaf/idbf/issues"
   },
 
   "dependencies": {

@@ -2,9 +2,9 @@
 
 A n-th indexed DBF reader (0-indexed)
 
+[![Build Status](https://travis-ci.org/Lemaf/idbf.svg?branch=master)](https://travis-ci.org/Lemaf/idbf)
 [![Dependency Status](https://david-dm.org/Lemaf/idbf.png)](https://david-dm.org/Lemaf/idbf)
 [![devDependency Status](https://david-dm.org/Lemaf/idbf/dev-status.png)](https://david-dm.org/Lemaf/idbf#info=devDependencies)
-
 
 ```js
 var Dbf = require("idbf").Dbf;

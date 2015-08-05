@@ -119,33 +119,23 @@ describe('Dbf.js', function() {
 
 		var lastIndex = -1, count = 0;
 
-		function iterator(err, record, index, next) {
+		function iterator(record, index, next) {
 			count++;
 
-			if (record) {
-				expect(err).to.not.exist;
-				expect(index).to.equal(lastIndex + 1);
-				lastIndex = index;
-				expect(next).to.exist;
-
-				next();
-			} else if (err) {
-				expect(record).to.not.exist;
-				expect(index).to.not.exist;
-				expect(next).to.not.exist;
-
-			} else {
-				[err, record, index, next].forEach(function(val) {
-					expect(val).to.not.exist;
-				});
-
-				expect(count).to.eql(5567);
-
-				done();
-			}
+			expect(record).to.exist;
+			expect(index).to.equal(lastIndex + 1);
+			lastIndex = index;
+			expect(next, 'Next must be a function!').to.be.an.instanceof(Function);
+			next();
 		}
 
-		dbf.forEach(fix(iterator));
+		function end(err) {
+			expect(count).to.equal(5566);
+			expect(err).to.not.exist;
+			done();
+		}
+
+		dbf.forEach(fix(iterator), fix(end));
 
 	});
 

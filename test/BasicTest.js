@@ -23,7 +23,10 @@ describe('Dbf.js', function() {
 
 			if (!fs.existsSync(path.join(__dirname, 'data',  down.test))) {
 				console.log('Downloading %s', down.url);
-				download(down, path.join(__dirname, 'data'), {extract: true}).on('close',next);
+				//new download(down, path.join(__dirname, 'data'), {extract: true}).on('close',next);
+				new download({extract: true}).get(down.url).dest(path.join(__dirname, 'data')).run(function(err, files) {
+					next(err);
+				});
 			}
 			else
 				next();
